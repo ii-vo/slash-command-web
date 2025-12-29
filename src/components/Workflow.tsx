@@ -34,11 +34,9 @@ export function Workflow() {
 
           <li>
             <code className="font-mono">/implement_plan</code>
-            <span className="text-zinc-400 ml-2">or</span>
-            <code className="font-mono ml-1">/implement_in_worktree</code>
             <p className="text-zinc-500 mt-1">
               Claude follows the plan and writes the code.
-              Use worktree to implement in an isolated branch with a new terminal.
+              Creates an isolated worktree by default. Use <code className="font-mono text-xs">--here</code> to implement in place.
             </p>
           </li>
 
