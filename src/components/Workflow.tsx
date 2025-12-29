@@ -34,9 +34,11 @@ export function Workflow() {
 
           <li>
             <code className="font-mono">/implement_plan</code>
+            <span className="text-zinc-400 ml-2">or</span>
+            <code className="font-mono ml-1">/implement_in_worktree</code>
             <p className="text-zinc-500 mt-1">
               Claude follows the plan and writes the code.
-              It pauses after each step so you can review.
+              Use worktree to implement in an isolated branch with a new terminal.
             </p>
           </li>
 
@@ -51,7 +53,7 @@ export function Workflow() {
             <code className="font-mono">/ship</code>
             <p className="text-zinc-500 mt-1">
               Create a pull request and merge it.
-              Use --pr-only to just create the PR, or --direct to merge without a PR.
+              Automatically cleans up worktrees when done.
             </p>
           </li>
         </ol>
