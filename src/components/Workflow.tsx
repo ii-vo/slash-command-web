@@ -1,13 +1,5 @@
 import { PlusCorner } from "./PlusCorner";
 
-const stages = [
-  { name: "RESEARCH", command: "/research_codebase" },
-  { name: "PLAN", command: "/create_plan" },
-  { name: "IMPLEMENT", command: "/implement_plan" },
-  { name: "VERIFY", command: "/validate_plan" },
-  { name: "DELIVER", command: "/ship" },
-];
-
 export function Workflow() {
   return (
     <section className="relative px-6 py-16">
@@ -22,59 +14,47 @@ export function Workflow() {
           How to build features with Claude Code
         </p>
 
-        {/* Desktop: Horizontal timeline */}
-        <div className="hidden md:flex relative justify-between items-center">
-          {/* Horizontal connecting line */}
-          <div className="absolute top-1/2 left-0 right-0 h-px bg-zinc-300 dark:bg-zinc-700 -translate-y-1/2" />
+        <ol className="space-y-6 text-sm">
+          <li>
+            <code className="font-mono">/research_codebase</code>
+            <span className="text-zinc-400 ml-2">(optional)</span>
+            <p className="text-zinc-500 mt-1">
+              Learn how your code works before making changes.
+              Creates notes in research/ you can reference later.
+            </p>
+          </li>
 
-          {/* Stages */}
-          {stages.map((stage) => (
-            <div
-              key={stage.name}
-              className="flex flex-col items-center relative z-10"
-            >
-              {/* Stage name above */}
-              <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-wide mb-3">
-                {stage.name}
-              </span>
+          <li>
+            <code className="font-mono">/create_plan</code>
+            <p className="text-zinc-500 mt-1">
+              Tell Claude what you want to build.
+              It analyzes your code and writes a step-by-step plan in plans/.
+            </p>
+          </li>
 
-              {/* Dot marker on the line */}
-              <div className="w-3 h-3 rounded-full bg-zinc-400 dark:bg-zinc-500 border-2 border-white dark:border-zinc-900" />
+          <li>
+            <code className="font-mono">/implement_plan</code>
+            <p className="text-zinc-500 mt-1">
+              Claude follows the plan and writes the code.
+              It pauses after each step so you can review.
+            </p>
+          </li>
 
-              {/* Command below */}
-              <span className="text-xs text-zinc-500 dark:text-zinc-500 font-mono mt-3 text-center whitespace-nowrap">
-                {stage.command}
-              </span>
-            </div>
-          ))}
-        </div>
+          <li>
+            <code className="font-mono">/validate_plan</code>
+            <p className="text-zinc-500 mt-1">
+              Double-check that everything in the plan is done and working.
+            </p>
+          </li>
 
-        {/* Mobile: Vertical timeline */}
-        <div className="md:hidden relative pl-8">
-          {/* Vertical connecting line */}
-          <div className="absolute left-[5px] top-2 bottom-2 w-px bg-zinc-300 dark:bg-zinc-700" />
-
-          {/* Stages stacked vertically */}
-          {stages.map((stage) => (
-            <div
-              key={stage.name}
-              className="relative flex items-start py-4 first:pt-0 last:pb-0"
-            >
-              {/* Dot marker on the line */}
-              <div className="absolute left-[-27px] top-4 first:top-0 w-3 h-3 rounded-full bg-zinc-400 dark:bg-zinc-500 border-2 border-white dark:border-zinc-900" />
-
-              {/* Stage content */}
-              <div>
-                <span className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-wide">
-                  {stage.name}
-                </span>
-                <span className="block text-xs text-zinc-500 dark:text-zinc-500 font-mono mt-1">
-                  {stage.command}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+          <li>
+            <code className="font-mono">/ship</code>
+            <p className="text-zinc-500 mt-1">
+              Create a pull request and merge it.
+              Use --pr-only to just create the PR, or --direct to merge without a PR.
+            </p>
+          </li>
+        </ol>
       </div>
     </section>
   );
