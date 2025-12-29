@@ -1,5 +1,13 @@
 import { PlusCorner } from "./PlusCorner";
 
+const stages = [
+  { name: "RESEARCH", command: "/research_codebase" },
+  { name: "PLAN", command: "/create_plan" },
+  { name: "IMPLEMENT", command: "/implement_plan" },
+  { name: "VERIFY", command: "/validate_plan" },
+  { name: "DELIVER", command: "/commit /describe_pr" },
+];
+
 export function Workflow() {
   return (
     <section className="relative px-6 py-16 border-t border-zinc-200 dark:border-zinc-800">
@@ -11,42 +19,58 @@ export function Workflow() {
           Workflow
         </h2>
 
-        {/* Desktop: Horizontal flow */}
-        <pre className="hidden md:block font-mono text-xs md:text-sm text-center text-zinc-600 dark:text-zinc-400 overflow-x-auto">
-          {`┌─────────────┬─────────────┬─────────────┬─────────────┬─────────────────┐
-│  RESEARCH   │    PLAN     │  IMPLEMENT  │   VERIFY    │    DELIVER      │
-├─────────────┼─────────────┼─────────────┼─────────────┼─────────────────┤
-│ /research_  │ /create_    │ /implement_ │ /validate_  │ /commit         │
-│  codebase   │  plan       │  plan       │  plan       │ /describe_pr    │
-└─────────────┴─────────────┴─────────────┴─────────────┴─────────────────┘`}
-        </pre>
+        {/* Desktop: Horizontal timeline */}
+        <div className="hidden md:flex relative justify-between items-center">
+          {/* Horizontal connecting line */}
+          <div className="absolute top-1/2 left-0 right-0 h-px bg-zinc-300 dark:bg-zinc-700 -translate-y-1/2" />
 
-        {/* Mobile: Vertical stack */}
-        <div className="md:hidden font-mono text-xs text-zinc-600 dark:text-zinc-400 space-y-2">
-          <div className="border border-zinc-300 dark:border-zinc-700 p-3">
-            <div className="font-bold mb-1">RESEARCH</div>
-            <div>/research_codebase</div>
-          </div>
-          <div className="text-center text-zinc-400">↓</div>
-          <div className="border border-zinc-300 dark:border-zinc-700 p-3">
-            <div className="font-bold mb-1">PLAN</div>
-            <div>/create_plan</div>
-          </div>
-          <div className="text-center text-zinc-400">↓</div>
-          <div className="border border-zinc-300 dark:border-zinc-700 p-3">
-            <div className="font-bold mb-1">IMPLEMENT</div>
-            <div>/implement_plan</div>
-          </div>
-          <div className="text-center text-zinc-400">↓</div>
-          <div className="border border-zinc-300 dark:border-zinc-700 p-3">
-            <div className="font-bold mb-1">VERIFY</div>
-            <div>/validate_plan</div>
-          </div>
-          <div className="text-center text-zinc-400">↓</div>
-          <div className="border border-zinc-300 dark:border-zinc-700 p-3">
-            <div className="font-bold mb-1">DELIVER</div>
-            <div>/commit /describe_pr</div>
-          </div>
+          {/* Stages */}
+          {stages.map((stage) => (
+            <div
+              key={stage.name}
+              className="flex flex-col items-center relative z-10"
+            >
+              {/* Stage name above */}
+              <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-wide mb-3">
+                {stage.name}
+              </span>
+
+              {/* Dot marker on the line */}
+              <div className="w-3 h-3 rounded-full bg-zinc-400 dark:bg-zinc-500 border-2 border-white dark:border-zinc-900" />
+
+              {/* Command below */}
+              <span className="text-xs text-zinc-500 dark:text-zinc-500 font-mono mt-3 text-center whitespace-nowrap">
+                {stage.command}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile: Vertical timeline */}
+        <div className="md:hidden relative pl-8">
+          {/* Vertical connecting line */}
+          <div className="absolute left-[5px] top-2 bottom-2 w-px bg-zinc-300 dark:bg-zinc-700" />
+
+          {/* Stages stacked vertically */}
+          {stages.map((stage) => (
+            <div
+              key={stage.name}
+              className="relative flex items-start py-4 first:pt-0 last:pb-0"
+            >
+              {/* Dot marker on the line */}
+              <div className="absolute left-[-27px] top-4 first:top-0 w-3 h-3 rounded-full bg-zinc-400 dark:bg-zinc-500 border-2 border-white dark:border-zinc-900" />
+
+              {/* Stage content */}
+              <div>
+                <span className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-wide">
+                  {stage.name}
+                </span>
+                <span className="block text-xs text-zinc-500 dark:text-zinc-500 font-mono mt-1">
+                  {stage.command}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
