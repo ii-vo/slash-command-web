@@ -4,10 +4,13 @@ import { useState } from "react";
 
 export function Install() {
   const [copied, setCopied] = useState(false);
-  const command = "/plugin install slash-command@ii-vo";
+  const commands = [
+    "/plugin marketplace add ii-vo/slash-command",
+    "/plugin install slash-command@slash-command",
+  ];
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(command);
+    await navigator.clipboard.writeText(commands.join("\n"));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -20,8 +23,10 @@ export function Install() {
         </h2>
 
         <div className="relative group">
-          <code className="block bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-6 py-4 font-mono text-sm md:text-base">
-            {command}
+          <code className="block bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-6 py-4 font-mono text-xs md:text-sm text-left space-y-1">
+            {commands.map((cmd, i) => (
+              <div key={i}>{cmd}</div>
+            ))}
           </code>
           <button
             onClick={handleCopy}
