@@ -18,7 +18,7 @@ export function Hero() {
           software development.
         </p>
         <a
-          href="https://github.com/ii-vo/slash-command"
+          href="https://github.com/ii-vo/claude-meta"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"

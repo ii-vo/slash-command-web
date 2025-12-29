@@ -5,8 +5,8 @@ import { useState } from "react";
 export function Install() {
   const [copied, setCopied] = useState(false);
   const commands = [
-    "/plugin marketplace add ii-vo/slash-command",
-    "/plugin install slash-command@slash-command",
+    "/plugin marketplace add ii-vo/claude-meta",
+    "/plugin install slash-command@claude-meta",
   ];
 
   const handleCopy = async () => {
