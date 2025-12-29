@@ -5,19 +5,22 @@ const stages = [
   { name: "PLAN", command: "/create_plan" },
   { name: "IMPLEMENT", command: "/implement_plan" },
   { name: "VERIFY", command: "/validate_plan" },
-  { name: "DELIVER", command: "/commit /describe_pr" },
+  { name: "DELIVER", command: "/ship" },
 ];
 
 export function Workflow() {
   return (
-    <section className="relative px-6 py-16 border-t border-zinc-200 dark:border-zinc-800">
+    <section className="relative px-6 py-16">
       <PlusCorner position="bottom-left" className="m-4" />
       <PlusCorner position="bottom-right" className="m-4" />
 
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-8 text-center">
-          Workflow
+      <div className="max-w-xl mx-auto">
+        <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4 text-center">
+          The Workflow
         </h2>
+        <p className="text-sm text-zinc-500 text-center mb-8">
+          How to build features with Claude Code
+        </p>
 
         {/* Desktop: Horizontal timeline */}
         <div className="hidden md:flex relative justify-between items-center">

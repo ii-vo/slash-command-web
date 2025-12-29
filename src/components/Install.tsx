@@ -6,7 +6,7 @@ export function Install() {
   const [copied, setCopied] = useState(false);
   const commands = [
     "/plugin marketplace add ii-vo/claude-meta",
-    "/plugin install slash-command@claude-meta",
+    "/plugin install claude-meta:slash-command",
   ];
 
   const handleCopy = async () => {
@@ -16,7 +16,7 @@ export function Install() {
   };
 
   return (
-    <section className="px-6 py-16 border-t border-zinc-200 dark:border-zinc-800">
+    <section className="px-6 py-16">
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-6">
           Install

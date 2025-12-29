@@ -11,11 +11,11 @@ export function Hero() {
           Slash Command
         </h1>
         <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 mb-6">
-          Structured workflows for Claude Code
+          Structured workflows you can build on
         </p>
         <p className="text-base text-zinc-500 dark:text-zinc-500 mb-8 max-w-md mx-auto">
-          A plugin for planning, implementation, and documentation workflows in
-          software development.
+          A Claude Code plugin for planning, implementing, and shipping code—with
+          artifacts saved for context.
         </p>
         <a
           href="https://github.com/ii-vo/claude-meta"
