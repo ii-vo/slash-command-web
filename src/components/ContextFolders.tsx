@@ -9,20 +9,22 @@ export function ContextFolders() {
           All output is saved to your repo so Claude can reference it later
         </p>
 
-        <ul className="text-sm space-y-2">
-          <li>
-            <code className="font-mono">plans/</code> <span className="text-zinc-500">— Step-by-step implementation plans</span>
-          </li>
-          <li>
-            <code className="font-mono">research/</code> <span className="text-zinc-500">— Notes about how your code works</span>
-          </li>
-          <li>
-            <code className="font-mono">handoffs/</code> <span className="text-zinc-500">— Summaries for resuming work later</span>
-          </li>
-          <li>
-            <code className="font-mono">prs/</code> <span className="text-zinc-500">— Pull request descriptions</span>
-          </li>
-        </ul>
+        <div className="font-mono text-sm bg-zinc-900 rounded-lg p-4 mb-6">
+          <div className="text-zinc-300">thoughts/</div>
+          <div className="ml-4 space-y-1 text-zinc-500">
+            <div>├── plans/ <span className="text-zinc-600"># Step-by-step implementation plans</span></div>
+            <div>├── research/ <span className="text-zinc-600"># Notes about how your code works</span></div>
+            <div>├── handoffs/ <span className="text-zinc-600"># Summaries for resuming work later</span></div>
+            <div>├── prs/ <span className="text-zinc-600"># Pull request descriptions</span></div>
+            <div>└── notes/ <span className="text-zinc-600"># Personal notes and decisions</span></div>
+          </div>
+        </div>
+
+        <p className="text-sm text-zinc-500 text-center">
+          These directories provide historical context across sessions, enabling Claude to
+          resume work with full understanding of past decisions, find similar patterns
+          from previous implementations, and reference research when planning new features.
+        </p>
       </div>
     </section>
   );

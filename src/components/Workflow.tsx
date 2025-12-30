@@ -50,11 +50,47 @@ export function Workflow() {
           <li>
             <code className="font-mono">/ship</code>
             <p className="text-zinc-500 mt-1">
-              Create a pull request and merge it.
-              Automatically cleans up worktrees when done.
+              Create a pull request, merge it, and clean up.
+              Use <code className="font-mono text-xs">--direct</code> to bypass PR.
             </p>
           </li>
         </ol>
+
+        <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+          <h3 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4 text-center">
+            Shipping Options
+          </h3>
+
+          <div className="space-y-4 text-sm">
+            <div className="p-4 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+              <code className="font-mono">/yolo</code>
+              <span className="text-zinc-400 ml-2">&quot;add feature X&quot;</span>
+              <p className="text-zinc-500 mt-1">
+                Full auto mode. Plans, implements, commits, and ships with no stops.
+                Halts immediately on any failure.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-4 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+                <code className="font-mono">/pr</code>
+                <p className="text-zinc-500 mt-1">
+                  Create or update a PR with a detailed description.
+                </p>
+              </div>
+              <div className="p-4 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+                <code className="font-mono">/merge</code>
+                <p className="text-zinc-500 mt-1">
+                  Merge an existing PR and clean up branches.
+                </p>
+              </div>
+            </div>
+
+            <p className="text-xs text-zinc-400 text-center">
+              <code className="font-mono">/ship</code> = <code className="font-mono">/pr</code> + <code className="font-mono">/merge</code>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
